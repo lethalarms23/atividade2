@@ -1,6 +1,14 @@
-<ul>
+@extends('layout')
+@section('titulo-pagina')
+Editoras
+@endsection
+@section('conteudo')
+<div class="row">
 @foreach($editoras as $editora)
-<li>{{$editora->nome}}</li>
+<div class="col-md-8">
+{{$editora->nome}}
+</div>
 @endforeach
-</ul>
+</div>
 {{$editoras->render()}}
+@endsection

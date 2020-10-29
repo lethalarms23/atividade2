@@ -1,6 +1,14 @@
-<ul>
+@extends('layout')
+@section('titulo-pagina')
+Autores
+@endsection
+@section('conteudo')
+<div class="row">
 @foreach($autores as $autor)
-<li>{{$autor->nome}}</li>
+<div class="col-md-8">
+{{$autor->nome}}
+</div>
 @endforeach
-</ul>
+</div>
 {{$autores->render()}}
+@endsection
