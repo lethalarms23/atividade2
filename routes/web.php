@@ -22,3 +22,5 @@ Route::get('/livros','App\Http\Controllers\LivrosController@index')->name('livro
 Route::get('/generos','App\Http\Controllers\GeneroController@index')->name('generos.index');
 
 Route::get('/editoras','App\Http\Controllers\EditorasController@index')->name('editoras.index');
+
+Route::get('/autores','App\Http\Controllers\AutorController@index')->name('autores.index');
