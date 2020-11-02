@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/livros/{id}/show','App\Http\Controllers\LivrosController@show')->name('livros.show');
+
+Route::get('/generos/{id}/show','App\Http\Controllers\GeneroController@show')->name('genero.show');
 
 Route::get('/livros','App\Http\Controllers\LivrosController@index')->name('livros.index');
 

@@ -6,6 +6,7 @@ Generos
 <div class="row">
 @foreach($generos as $genero)
 <div class="col-md-8">
+<a href="{{route('genero.show',['id'=>$genero->idg])}}">
 {{$genero->designacao}}
 </div>
 @endforeach
