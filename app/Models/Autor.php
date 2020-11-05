@@ -12,4 +12,8 @@ class Autor extends Model
     protected $primaryKey="id_autor";
 
     protected $table = "autores";
+
+    public function livros(){
+        return $this->hasMany('App\Models\Livro','id_autor');
+    }
 }

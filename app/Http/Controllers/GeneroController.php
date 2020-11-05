@@ -16,9 +16,9 @@ class GeneroController extends Controller
     }
 
     public function show(Request $req){
-        $idGenero = $req->designacao;
+        $idGenero = $req->id;
 
-        $genero = Genero::where('id_genero',$idGenero)->first();
+        $genero = Genero::where('id_genero',$idGenero)->with('livros')->first();
 
         return view('generos.show',['generos'=>$genero]);
     }

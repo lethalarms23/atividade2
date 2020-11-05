@@ -6,7 +6,7 @@ Autores
 <div class="row">
 @foreach($autores as $autor)
 <div class="col-md-8">
-{{$autores->nome}}
+<a href="{{route('autores.show',['id'=>$autor->id_autor])}}">{{$autor->nome}}</a>
 </div>
 @endforeach
 </div>
