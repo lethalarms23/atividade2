@@ -6,7 +6,7 @@ Autores
 <div class="row">
 @foreach($autores as $autor)
 <div class="col-md-8">
-{{$autor->nome}}
+{{$autores->nome}}
 </div>
 @endforeach
 </div>

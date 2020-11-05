@@ -6,7 +6,7 @@ Livros
 <div class="row">
 @foreach($livros as $livro)
 <div class="col-md-8">
-<a href="{{route('livros.show',['id'=>$livro->idl])}}">
+<a href="{{route('livros.show',['id'=>$livro->id_livro])}}">
 {{$livro->titulo}}
 </a>
 </div>

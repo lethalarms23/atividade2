@@ -6,7 +6,7 @@ Editoras
 <div class="row">
 @foreach($editoras as $editora)
 <div class="col-md-8">
-{{$editora->nome}}
+{{$editoras->nome}}
 </div>
 @endforeach
 </div>

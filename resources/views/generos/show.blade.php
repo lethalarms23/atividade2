@@ -1,3 +1,3 @@
-ID:{{$genero->idg}}<br>
-Designação:{{$genero->designacao}}<br>
-Observações:{{$genero->observacoes}}
+ID:{{$generos->id_genero}}<br>
+Designação:{{$generos->designacao}}<br>
+Observações:{{$generos->observacoes}}
