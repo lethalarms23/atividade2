@@ -20,7 +20,7 @@ class LivrosController extends Controller
         $idLivro = $req->id;
         //$livro = Livro::findOrFail($idLivro);
         //$livro = Livro::find($idLivro);
-        $livro = Livro::where('id_livro',$idLivro)->with(['genero'],['autor'])->first();
+        $livro = Livro::where('id_livro',$idLivro)->with(['genero','autores','editoras'])->first();
 
         return view('livros.show',['livro'=>$livro]);
     }

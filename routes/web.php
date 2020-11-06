@@ -23,6 +23,12 @@ Route::get('/generos','App\Http\Controllers\GeneroController@index')->name('gene
 
 Route::get('/editoras','App\Http\Controllers\EditorasController@index')->name('editoras.index');
 
+Route::get('/editoras/{id}/show','App\Http\Controllers\EditorasController@show')->name('editoras.show');
+
 Route::get('/autores','App\Http\Controllers\AutorController@index')->name('autores.index');
 
 Route::get('/autores/{id}/show','App\Http\Controllers\AutorController@show')->name('autores.show');
+
+Route::get('/pesquisa','App\Http\Controllers\PesquisaController@index')->name('pesquisa.index');
+
+
