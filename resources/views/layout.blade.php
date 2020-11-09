@@ -15,10 +15,11 @@
     @yield('conteudo')
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="navbar-nav">
+      <a class="nav-item nav-link" href="{{route('pesquisa.index')}}">Pesquisar Livro</a>
       <a class="nav-item nav-link" href="{{route('livros.index')}}">Livros</a>
       <a class="nav-item nav-link" href="{{route('generos.index')}}">Generos</a>
       <a class="nav-item nav-link" href="{{route('editoras.index')}}">Editoras</a>
-      <a class="nav-item nav-link" href="{{route('autores.index')}}">Editoras</a>
+      <a class="nav-item nav-link" href="{{route('autores.index')}}">Autores</a>
     </div>
   </div>
 </nav>
