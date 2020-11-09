@@ -29,6 +29,8 @@ Route::get('/autores','App\Http\Controllers\AutorController@index')->name('autor
 
 Route::get('/autores/{id}/show','App\Http\Controllers\AutorController@show')->name('autores.show');
 
-Route::get('/pesquisa','App\Http\Controllers\PesquisaController@index')->name('pesquisa.index');
+Route::get('/','App\Http\Controllers\PesquisaController@index')->name('pesquisa.index');
+
+Route::post('/pesquisa/resultado', 'App\Http\Controllers\PesquisaController@process')->name('pesquisa.process');
 
 
