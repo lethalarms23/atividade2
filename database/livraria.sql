@@ -28,6 +28,16 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `autores`
 --
 
+CREATE TABLE 'editoras_livros'(
+    `titulo` text NOT NULL,
+  `id_livro` int(20) NOT NULL,
+  `id_editora` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 CREATE TABLE `autores` (
   `id_autor` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
