@@ -45,3 +45,15 @@ Route::post('/pesquisa/resultado', 'App\Http\Controllers\PesquisaController@proc
 Route::get('/livros/create','App\Http\Controllers\LivrosController@create')->name('livros.create');
 
 Route::post('/livros/store','App\Http\Controllers\LivrosController@store')->name('livros.store');
+
+Route::get('/generos/create','App\Http\Controllers\GeneroController@create')->name('generos.create');
+
+Route::post('/generos/store','App\Http\Controllers\GeneroController@store')->name('generos.store');
+
+Route::get('/editoras/create','App\Http\Controllers\EditorasController@create')->name('editoras.create');
+
+Route::post('/editoras/store','App\Http\Controllers\EditorasController@store')->name('editoras.store');
+
+Route::get('/autores/create','App\Http\Controllers\AutorController@create')->name('autores.create');
+
+Route::post('/autores/store','App\Http\Controllers\AutorController@store')->name('autores.store');

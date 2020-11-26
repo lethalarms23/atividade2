@@ -13,6 +13,12 @@ class Editora extends Model
 
     protected $table = "editoras";
 
+    protected $fillable=[
+        'nome',
+        'morada',
+        'observacoes',
+    ];
+
     public function livros(){
         return $this->belongsToMany(
             'App\Models\Livro',

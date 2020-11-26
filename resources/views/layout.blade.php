@@ -34,7 +34,7 @@
     @yield('conteudo')
     <nav class="navbar navbar-expand-lg navbar bg-dark">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="{{route('pesquisa.index')}}">Pesquisar Livro</a>
+      <a class="nav-item nav-link" href="{{route('pesquisa.index')}}"><i class="fas fa-search"></i></a>
       <a class="nav-item nav-link" href="{{route('livros.index')}}">Livros</a>
       <a class="nav-item nav-link" href="{{route('generos.index')}}">Generos</a>
       <a class="nav-item nav-link" href="{{route('editoras.index')}}">Editoras</a>

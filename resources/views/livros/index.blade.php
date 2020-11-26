@@ -16,5 +16,5 @@ Livros
 @endforeach
 </div>
 {{$livros->render()}}
-<a href="{{route('livros.create')}}">Adicionar Livros</a>
+<a href="{{route('livros.create')}}" class="btn btn-secondary" role="button"><i class="fas fa-plus"></i></a><br>
 @endsection

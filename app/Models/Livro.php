@@ -13,8 +13,12 @@ class Livro extends Model
 
     protected $table = "livros";
 
+    protected $dates = [
+        'data_edicao'
+    ];
+
     protected $fillable=[
-        '   titulo',
+        'titulo',
         'idioma',
         'total_paginas',
         'data_edicao',
@@ -28,10 +32,6 @@ class Livro extends Model
 
     public function genero(){
         return $this->belongsTo('App\Models\Genero','id_genero');
-    }
-
-    public function autor(){
-        return $this->belongsTo('App\Models\Autor','id_autor');
     }
 
     public function autores(){

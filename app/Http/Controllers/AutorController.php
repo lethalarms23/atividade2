@@ -22,4 +22,21 @@ class AutorController extends Controller
 
         return view('autores.show',['autores'=>$autor]);
     }
+
+    public function create(){
+        return view('autores.create');
+    }
+
+    public function store(Request $r){
+        $novoAutor = $r->validate([
+            'nome'=>['required','min:1','max:100'],
+            'nacionalidade'=> ['required','min:1','max:20'],
+            'data_nascimento'=> ['nullable','date'],
+            'fotografia'=>['nullable','min:1','max:255'],
+        ]);
+
+        $autor = Autor::create($novoAutor);
+
+        return redirect()->route('autores.show',['id'=>$autor->id_autor]);
+    }
 }

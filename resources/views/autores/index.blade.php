@@ -11,4 +11,5 @@ Autores
 @endforeach
 </div>
 {{$autores->render()}}
+<a href="{{route('autores.create')}}" class="btn btn-secondary" role="button"><i class="fas fa-plus"></i></a><br>
 @endsection

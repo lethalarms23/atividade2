@@ -13,4 +13,5 @@ Editoras
 @endforeach
 </div>
 {{$editoras->render()}}
+<a href="{{route('editoras.create')}}" class="btn btn-secondary" role="button"><i class="fas fa-plus"></i></a><br>
 @endsection

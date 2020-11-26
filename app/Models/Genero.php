@@ -13,6 +13,11 @@ class Genero extends Model
 
     protected $table = "generos";
 
+    protected $fillable=[
+        'designacao',
+        'observacoes',
+    ];
+
     public function livros(){
         return $this->hasMany('App\Models\Livro','id_genero');
     }
