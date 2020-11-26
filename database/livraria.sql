@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `autores`
 --
 
-CREATE TABLE 'editoras_livros'(
+CREATE TABLE `editoras_livros`(
     `titulo` text NOT NULL,
   `id_livro` int(20) NOT NULL,
   `id_editora` int(11) NOT NULL,

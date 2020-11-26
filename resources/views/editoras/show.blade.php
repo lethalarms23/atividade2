@@ -1,4 +1,9 @@
 @extends('layout')
+@section('header')
+Editoras
+@endsection
+@section('conteudo')
 ID:{{$editoras->id_editora}}<br>
 Nome:{{$editoras->nome}}<br>
 Observações:{{$editoras->observacoes}}
+@endsection

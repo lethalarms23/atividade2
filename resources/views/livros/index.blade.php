@@ -1,4 +1,7 @@
 @extends('layout')
+@section('header')
+Livros
+@endsection
 @section('titulo-pagina')
 Livros
 @endsection
@@ -13,4 +16,5 @@ Livros
 @endforeach
 </div>
 {{$livros->render()}}
+<a href="{{route('livros.create')}}">Adicionar Livros</a>
 @endsection

@@ -1,5 +1,5 @@
 @extends('layout')
-@section('titulo-pagina')
+@section('header')
 Autores
 @endsection
 @section('conteudo')

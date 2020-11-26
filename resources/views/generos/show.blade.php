@@ -1,3 +1,8 @@
+@extends('layout')
+@section('header')
+Generos
+@endsection
+@section('conteudo')
 ID:{{$generos->id_genero}}<br>
 Designação:{{$generos->designacao}}<br>
 @if(count($generos->livros))
@@ -10,3 +15,4 @@ Designação:{{$generos->designacao}}<br>
     </div>
 @endif
 Observações:{{$generos->observacoes}}
+@endsection

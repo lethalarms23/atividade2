@@ -1,4 +1,8 @@
 @extends('layout')
+@section('header')
+Editoras
+@endsection
+@section('conteudo')
 <div class="row">
 @foreach($editoras as $editora)
 <div class="col-md-8">
@@ -9,3 +13,4 @@
 @endforeach
 </div>
 {{$editoras->render()}}
+@endsection

@@ -9,11 +9,30 @@
     <script src="{{asset('js/jquery-3.5.1.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/all.min.js')}}"></script>
+    <style>
+    body{
+        background-color: #2b2b2b;
+        color: #ffffff;
+    }
+    a{
+        color: #ffffff;
+    }
+    table,tr,td,th{
+      color: #ffffff;
+      text-align: center;
+    }
+    th {
+      text-decoration: underline;
+    }
+    .floatLeft { width: 50%; float: left; }
+    .floatRight {width: 50%; float: right; }
+    .container { overflow: hidden; }
+    </style>
 </head>
 <body>
-    <h1 style="color: #00ff00;">@yield('header')</h1>
+<h2 style="text-align: center" class="bg-dark">@yield('header')</h2>
     @yield('conteudo')
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar bg-dark">
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="{{route('pesquisa.index')}}">Pesquisar Livro</a>
       <a class="nav-item nav-link" href="{{route('livros.index')}}">Livros</a>

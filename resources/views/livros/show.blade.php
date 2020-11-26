@@ -1,4 +1,8 @@
 @extends ('layout')
+@section('header')
+Livros
+@endsection
+@section('conteudo')
 ID:{{$livro->id_livro}}<br>
 Título:{{$livro->titulo}}<br>
 Idioma:{{$livro->idioma}}<br>
@@ -29,3 +33,4 @@ Idioma:{{$livro->idioma}}<br>
     <h3>Sem Editora definida</h3>
     </div>
 @endif
+@endsection

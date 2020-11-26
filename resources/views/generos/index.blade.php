@@ -1,5 +1,5 @@
 @extends('layout')
-@section('titulo-pagina')
+@section('header')
 Generos
 @endsection
 @section('conteudo')
