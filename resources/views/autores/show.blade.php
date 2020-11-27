@@ -5,7 +5,7 @@ Autores
 @section('conteudo')
 ID:{{$autores->id_autor}}<br>
 Nome:{{$autores->nome}}<br>
-Nacionalidade: {{$autores->nacionalidade}}<br>
+Nacionalidade: {{$autores->nacionalidade}} <i class="{{strtolower($autores->nacionalidade)}} flag"></i><br>
 Data Nascimento: {{$autores->data_nascimento}}<br>
 Fotografia: {{$autores->fotografia}}<br>
 @if(count($autores->livros))

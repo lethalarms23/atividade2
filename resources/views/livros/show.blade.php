@@ -5,7 +5,7 @@ Livros
 @section('conteudo')
 ID:{{$livro->id_livro}}<br>
 Título:{{$livro->titulo}}<br>
-Idioma:{{$livro->idioma}}<br>
+Idioma:{{$livro->idioma}} <i class="{{strtolower($livro->idioma)}} flag"></i><br>
 ISBN: {{$livro->isbn}}<br>
 @if(!is_null($livro->data_edicao))
 Data Edição: {{$livro->data_edicao->format('d-m-Y')}}<br>
