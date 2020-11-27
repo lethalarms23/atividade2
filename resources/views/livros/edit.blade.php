@@ -21,7 +21,7 @@ Editar Livro
 </tr>
 <tr>
 <th>Data Edição</th>
-<td><input type="date" name="data_edicao" value="{{$livro->data_edicao->format('Y-m-d')}}"></td>
+<td><input type="date" name="data_edicao" value="@if(!is_null($autor->data_edicao)){{$livro->data_edicao->format('Y-m-d')}}@endif"></td>
 </tr>
 <tr>
 <th>ISBN</th>
