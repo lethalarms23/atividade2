@@ -46,14 +46,42 @@ Route::get('/livros/create','App\Http\Controllers\LivrosController@create')->nam
 
 Route::post('/livros/store','App\Http\Controllers\LivrosController@store')->name('livros.store');
 
+
+
 Route::get('/generos/create','App\Http\Controllers\GeneroController@create')->name('generos.create');
 
 Route::post('/generos/store','App\Http\Controllers\GeneroController@store')->name('generos.store');
+
+
 
 Route::get('/editoras/create','App\Http\Controllers\EditorasController@create')->name('editoras.create');
 
 Route::post('/editoras/store','App\Http\Controllers\EditorasController@store')->name('editoras.store');
 
+
+
 Route::get('/autores/create','App\Http\Controllers\AutorController@create')->name('autores.create');
 
 Route::post('/autores/store','App\Http\Controllers\AutorController@store')->name('autores.store');
+
+
+//Editar valores da BD
+
+Route::get('/livros/{id}/edit','App\Http\Controllers\LivrosController@edit')->name('livros.edit');
+
+Route::patch('/livro/{id}/update','App\Http\Controllers\LivrosController@update')->name('livros.update');
+
+
+Route::get('/generos/{id}/edit','App\Http\Controllers\GeneroController@edit')->name('genero.edit');
+
+Route::patch('/generos/{id}/update','App\Http\Controllers\GeneroController@update')->name('genero.update');
+
+
+Route::get('/editoras/{id}/edit','App\Http\Controllers\EditorasController@edit')->name('editora.edit');
+
+Route::patch('/editoras/{id}/update','App\Http\Controllers\EditorasController@update')->name('editora.update');
+
+
+Route::get('/autores/{id}/edit','App\Http\Controllers\AutorController@edit')->name('autor.edit');
+
+Route::patch('/autores/{id}/update','App\Http\Controllers\AutorController@update')->name('autor.update');

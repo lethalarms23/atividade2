@@ -14,7 +14,10 @@ class Livro extends Model
     protected $table = "livros";
 
     protected $dates = [
-        'data_edicao'
+        'data_edicao',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     protected $fillable=[

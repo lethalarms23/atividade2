@@ -14,5 +14,6 @@ Designação:{{$generos->designacao}}<br>
     Neste género ainda não há livros!
     </div>
 @endif
-Observações:{{$generos->observacoes}}
+Observações:{{$generos->observacoes}}<br>
+<a href="{{route('genero.edit',['id'=>$generos->id_genero])}}" class="btn btn-secondary" role="button">Editar</a><br>
 @endsection

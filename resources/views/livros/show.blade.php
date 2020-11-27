@@ -18,9 +18,27 @@ Total páginas: {{$livro->total_paginas}}<br>
 Observações: {{$livro->observacoes}}<br>
 Imagem Capa: {{$livro->imagem_capa}}<br>
 Sinopse: {{$livro->sinopse}}<br>
-Created_at: {{$livro->created_at}}<br>
-Updated_at: {{$livro->updated_at}}<br>
-Deleted_at: {{$livro->deleted_at}}<br>
+@if(!is_null($livro->created_at))
+Created_at: {{$livro->created_at->format('d-m-Y')}}<br>
+@else
+<div class="alert alert-danger" role="alert">
+    <h3>Created_at não definido</h3>
+</div>
+@endif
+@if(!is_null($livro->updated_at))
+Updated_at: {{$livro->updated_at->format('d-m-Y')}}<br>
+@else
+<div class="alert alert-danger" role="alert">
+    <h3>Updated_at não definido</h3>
+</div>
+@endif
+@if(!is_null($livro->deleted_at))
+Deleted_at: {{$livro->deleted_at->format('d-m-Y')}}<br>
+@else
+<div class="alert alert-danger" role="alert">
+    <h3>Deleted_at não definido</h3>
+</div>
+@endif
 @if(count($livro->autores)>0)
     @foreach($livro->autores as $autor)
         Nome: {{$autor->nome}}<br>
@@ -37,5 +55,6 @@ Deleted_at: {{$livro->deleted_at}}<br>
 <div class="alert alert-danger" role="alert">
     <h3>Sem Género definido</h3>
 </div> 
-@endif
+@endif<br>
+<a href="{{route('livros.edit',['id'=>$livro->id_livro])}}" class="btn btn-secondary" role="button">Editar</a><br>
 @endsection

@@ -39,4 +39,25 @@ class AutorController extends Controller
 
         return redirect()->route('autores.show',['id'=>$autor->id_autor]);
     }
+
+    public function edit(Request $r){
+        $id = $r -> id;
+        $autor = Autor::where('id_autor',$id)->with('livros')->first();
+        return view('autores.edit',['autor'=>$autor]);
+    }
+
+    public function update(Request $r){
+        $id = $r -> id;
+        $autor = Autor::where('id_autor',$id)->with('livros')->first();
+        $editarAutor = $r->validate([
+            'nome'=>['required','min:1','max:100'],
+            'nacionalidade'=> ['required','min:1','max:20'],
+            'data_nascimento'=> ['nullable','date'],
+            'fotografia'=>['nullable','min:1','max:255'],
+        ]);
+
+        $autorAtualizado = $autor->update($editarAutor);
+
+        return redirect()->route('autores.show',['id'=>$autor->id_autor]);
+    }
 }

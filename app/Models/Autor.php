@@ -13,6 +13,10 @@ class Autor extends Model
 
     protected $table = "autores";
 
+    protected $dates = [
+        'data_nascimento',
+    ];
+
     protected $fillable=[
         'nome',
         'nacionalidade',
