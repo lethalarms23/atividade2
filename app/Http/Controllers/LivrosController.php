@@ -76,4 +76,26 @@ class LivrosController extends Controller
 
         return redirect()->route('livros.show',['id'=>$livro->id_livro]);
     }
+
+    public function delete(Request $r){
+        $livro = Livro::where('id_livro',$r->id)->with(['genero','autores','editoras'])->first();
+
+        if(is_null($livro)){
+            return redirect()->route('livros.index')->with('msg','O livro não existe');
+        }
+        else{
+            return view('livros.delete',['livro'=>$livro]);
+        }
+    }
+
+    public function destroy(Request $r){
+        $livro = Livro::where('id_livro',$r->id)->with(['genero','autores','editoras'])->first();
+        if(is_null($livro)){
+            return redirect()->route('livros.index')->with('msg','O livro não existe');
+        }
+        else{
+            $livroEliminado = $livro->delete();
+            return redirect()->route('livros.index');
+        }
+    }
 }

@@ -32,13 +32,19 @@
     .floatLeft { width: 50%; float: left; }
     .floatRight {width: 50%; float: right; }
     .container { overflow: hidden; }
+    @yield('scripts')
     </style>
 </head>
 <body>
+@if(session()->has('msg'))
+  <h2 style="text-align: center" class="alert alert-danger">{{session('msg')}}</h2>
+@endif
+
 <h2 style="text-align: center" class="bg-dark">@yield('header')</h2>
     @yield('conteudo')
     <nav class="navbar navbar-expand-lg navbar bg-dark">
     <div class="navbar-nav">
+      <a class="nav-item nav-link" href="{{route('home.index')}}"><i class="fas fa-home"></i></a>
       <a class="nav-item nav-link" href="{{route('pesquisa.index')}}"><i class="fas fa-search"></i></a>
       <a class="nav-item nav-link" href="{{route('livros.index')}}">Livros</a>
       <a class="nav-item nav-link" href="{{route('generos.index')}}">Generos</a>

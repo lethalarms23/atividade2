@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Pagina Inicial Slick
+
+Route::get('/index',function(){ return view('index');})->name('home.index');
+
 //Routes Show
 
 
@@ -85,3 +89,24 @@ Route::patch('/editoras/{id}/update','App\Http\Controllers\EditorasController@up
 Route::get('/autores/{id}/edit','App\Http\Controllers\AutorController@edit')->name('autor.edit');
 
 Route::patch('/autores/{id}/update','App\Http\Controllers\AutorController@update')->name('autor.update');
+
+
+//Remover valores da BD
+Route::get('/livros/{id}/delete','App\Http\Controllers\LivrosController@delete')->name('livros.delete');
+
+Route::delete('/livros/{id}/destroy','App\Http\Controllers\LivrosController@destroy')->name('livros.destroy');
+
+
+Route::get('/generos/{id}/delete','App\Http\Controllers\GeneroController@delete')->name('genero.delete');
+
+Route::delete('/generos/{id}/destroy','App\Http\Controllers\GeneroController@destroy')->name('genero.destroy');
+
+
+Route::get('/editoras/{id}/delete','App\Http\Controllers\EditorasController@delete')->name('editora.delete');
+
+Route::delete('/editoras/{id}/destroy','App\Http\Controllers\EditorasController@destroy')->name('editora.destroy');
+
+
+Route::get('/autores/{id}/delete','App\Http\Controllers\AutorController@delete')->name('autor.delete');
+
+Route::delete('/autores/{id}/destroy','App\Http\Controllers\AutorController@destroy')->name('autor.destroy');
