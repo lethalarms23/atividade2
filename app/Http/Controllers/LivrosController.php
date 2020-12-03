@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Livro;
+use App\Models\Genero;
 
 class LivrosController extends Controller
 {
@@ -26,7 +27,8 @@ class LivrosController extends Controller
     }
 
     public function create(){
-        return view('livros.create');
+        $generos = Genero::all();
+        return view('livros.create',['generos'=>$generos]);
     }
 
     public function store(Request $r){
@@ -51,9 +53,10 @@ class LivrosController extends Controller
     }
 
     public function edit(Request $r){
+        $generos = Genero::all();
         $id = $r -> id;
         $livro = Livro::where('id_livro',$id)->with(['genero','autores','editoras'])->first();
-        return view('livros.edit',['livro'=>$livro]);
+        return view('livros.edit',['livro'=>$livro,'generos'=>$generos]);
     }
 
     public function update(Request $r){

@@ -35,16 +35,22 @@ Adicionar Livro
 <td><input type="text" name="imagem_capa" value="{{old('imagem_capa')}}"></td>
 </tr>
 <tr>
-<th>Género</th>
-<td><input type="text" name="id_genero" value="{{old('id_genero')}}"></td>
-</tr>
-<tr>
 <th>Autor</th>
 <td><input type="text" name="id_autor" value="{{old('id_autor')}}"></td>
 </tr>
 <tr>
 <th>Sinopse</th>
 <td><textarea name="sinopse">{{old('sinopse')}}</textarea></td>
+</tr>
+<tr>
+<th>Genero</th>
+<td>
+<select name="id_genero">
+@foreach($generos as $genero)
+    <option value="{{$genero->id}}">{{$genero->designacao}}</option>
+@endforeach
+</select>
+</td>
 </tr>
 <tr>
 <td>Enviar Dados</td>

@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/flag.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/slick.css')}}">
-    <link rel="stylesheet" href="{{asset('css/vegas.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/slick.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/vegas.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/slick-theme.css')}}">
 
     <script src="{{asset('js/jquery-3.5.1.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
@@ -32,7 +33,6 @@
     .floatLeft { width: 50%; float: left; }
     .floatRight {width: 50%; float: right; }
     .container { overflow: hidden; }
-    @yield('scripts')
     </style>
 </head>
 <body>
@@ -53,5 +53,6 @@
     </div>
   </div>
 </nav>
+@yield('scripts')
 </body>
 </html>

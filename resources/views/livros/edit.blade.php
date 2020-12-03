@@ -21,7 +21,7 @@ Editar Livro
 </tr>
 <tr>
 <th>Data Edição</th>
-<td><input type="date" name="data_edicao" value="@if(!is_null($autor->data_edicao)){{$livro->data_edicao->format('Y-m-d')}}@endif"></td>
+<td><input type="date" name="data_edicao" value="@if(!is_null($livro->data_edicao)){{$livro->data_edicao->format('Y-m-d')}}@endif"></td>
 </tr>
 <tr>
 <th>ISBN</th>
@@ -37,7 +37,11 @@ Editar Livro
 </tr>
 <tr>
 <th>Género</th>
-<td><input type="text" name="id_genero" value="{{$livro->id_genero}}"></td>
+<td><select name="id_genero" class="custom-select custom-select-sm" style="width: 25%">
+@foreach($generos as $genero)
+    <option value="{{$genero->id_genero}}" @if($genero->id_genero==$livro->id_genero)selected @endif>{{$genero->designacao}}</option>
+@endforeach
+</select></td>
 </tr>
 <tr>
 <th>Autor</th>
