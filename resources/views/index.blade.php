@@ -53,10 +53,10 @@ $('body').vegas({
     </div>
 
     <div class="social_icons text-center">
-        <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
-        <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
-        <a href="https://www.behance.net"><i class="fa fa-behance"></i></a>
-        <a href="#"><i class="fa fa-flickr"></i></a>
+        <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.behance.net"><i class="fab fa-behance"></i></a>
+        <a href="#"><i class="fab fa-flickr"></i></a>
     </div><br><br>
     
 
