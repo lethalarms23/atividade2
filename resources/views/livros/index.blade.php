@@ -42,8 +42,12 @@ Livros
 <script type="text/javascript">
    $(document).ready(function(){
   $('.carousel').slick({
-  slidesToShow: 3,
+  slidesToShow: 4,
   centerMode: true,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 1500,
+  infinite: true,
   });
 });
 </script>
@@ -53,13 +57,13 @@ Livros
 <h2 style="text-align: center" class="bg-dark">Slider slick js</h2>
 <div class="wrapper">
   <h2>Slick Carousel Example<h2>
-<div class="carousel">
-  <div><img src="http://lorempixel.com/200/200/nature/"></div>
-  <div><img src="http://lorempixel.com/200/200/fashion/"></div>
-  <div><img src="http://lorempixel.com/200/200/sports/"></div>
-  <div><img src="http://lorempixel.com/200/200/animal/"></div>
-  <div><img src="http://lorempixel.com/200/200/abstract/"></div>
-  <div><img src="http://lorempixel.com/200/200/people/"></div>
+<div class="carousel" style="height: 30%">
+  <div><img src="https://konigwheels.com/wp-content/uploads/2018/07/IMG_4803-1024x597.jpg"></div>
+  <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvUkGGTtSeFNUnJ8RYkUdRmHZKpthn_aQKjA&usqp=CAU"></div>
+  <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIWbM6seMyysouiCXgyjZldIfjHHJCJt8m5g&usqp=CAU"></div>
+  <div><img src="https://konigwheels.com/wp-content/uploads/2018/07/dkar-8615-1024x597.jpg"></div>
+  <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD0e0Fe3v7l3-cxkjweqEfYBflYdZVMbKsAw&usqp=CAU"></div>
+  <div><img src="https://ccnwordpress.blob.core.windows.net/journal/2019/09/DSC07733.jpg"></div>
 </div>
 </div>
 @endsection

@@ -35,8 +35,14 @@ Adicionar Livro
 <td><input type="text" name="imagem_capa" value="{{old('imagem_capa')}}"></td>
 </tr>
 <tr>
-<th>Autor</th>
-<td><input type="text" name="id_autor" value="{{old('id_autor')}}"></td>
+<th>Autor(es)</th>
+<td>
+<select name="id_autor[]" class="custom-select custom-select-sm" style="width: 25%">
+@foreach($autores as $autor)
+    <option value="{{$autor->id_autor}}">{{$autor->nome}}</option>
+@endforeach
+</select>
+</td>
 </tr>
 <tr>
 <th>Sinopse</th>
@@ -45,11 +51,21 @@ Adicionar Livro
 <tr>
 <th>Genero</th>
 <td>
-<select name="id_genero">
+<select name="id_genero" class="custom-select custom-select-sm" style="width: 25%">
 @foreach($generos as $genero)
     <option value="{{$genero->id}}">{{$genero->designacao}}</option>
 @endforeach
 </select>
+</td>
+</tr>
+<tr>
+<th>Editora</th>
+<td>
+<select name="id_editora[]" multiple="multiple">
+        @foreach($editoras as $editora)
+            <option value="{{$editora->id_editora}}">{{$editora->nome}}</option>
+        @endforeach
+    </select>
 </td>
 </tr>
 <tr>
