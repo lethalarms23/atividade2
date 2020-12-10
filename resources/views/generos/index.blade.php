@@ -13,5 +13,7 @@ Generos
 @endforeach
 </div>
 {{$generos->render()}}
+@if(auth()->check())
 <a href="{{route('generos.create')}}" class="btn btn-secondary" role="button"><i class="fas fa-plus"></i></a><br>
+@endif
 @endsection

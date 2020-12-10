@@ -7,6 +7,7 @@ use App\Models\Livro;
 use App\Models\Genero;
 use App\Models\Autor;
 use App\Models\Editora;
+use Auth;
 
 class LivrosController extends Controller
 {
@@ -47,6 +48,13 @@ class LivrosController extends Controller
             'id_genero'=>['nullable','numeric','min:1'],
             'sinopse'=>['nullable','min:3','max:255']
         ]);
+        if(Auth::check()){
+            $userAtual = Auth::user()->id;
+            $novoLivro['id_user']=$userAtual;
+        }
+        else{
+            return redirect()->route('login')->with('msg','Não está logado');
+        }
         $autores = $r->id_autor;
         $editora = $r->id_editora;
         $livro = Livro::create($novoLivro);

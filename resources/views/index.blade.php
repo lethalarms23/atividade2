@@ -45,21 +45,5 @@ $('body').vegas({
   ]
 });
 </script>
-
-<h2 style="text-align: center" class="bg-dark">Slider Vegas js</h2>
-<div class="container">
-    <div class="name text-center">
-        <h2>King Rayhan</h2> 
-    </div>
-
-    <div class="social_icons text-center">
-        <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.behance.net"><i class="fab fa-behance"></i></a>
-        <a href="#"><i class="fab fa-flickr"></i></a>
-    </div><br><br>
-    
-
-</div>
 <script src="https://raw.githubusercontent.com/jaysalvat/vegas/master/dist/vegas.min.js"></script>
 @endsection

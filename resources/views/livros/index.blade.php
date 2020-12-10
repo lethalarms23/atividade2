@@ -16,7 +16,9 @@ Livros
 @endforeach
 </div>
 {{$livros->render()}}
+@if(auth()->check())
 <a href="{{route('livros.create')}}" class="btn btn-secondary" role="button"><i class="fas fa-plus"></i></a>
+@endif
 
 <style>
 .wrapper{

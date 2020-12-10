@@ -15,6 +15,8 @@ Designação:{{$generos->designacao}}<br>
     </div>
 @endif
 Observações:{{$generos->observacoes}}<br>
+@if(auth()->check())
 <a href="{{route('genero.edit',['id'=>$generos->id_genero])}}" class="btn btn-secondary" role="button">Editar</a>
 <a href="{{route('genero.delete',['id'=>$generos->id_genero])}}" class="btn btn-secondary" role="button"><i class="fas fa-minus"></i></a><br>
+@endif
 @endsection

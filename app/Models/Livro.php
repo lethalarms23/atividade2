@@ -30,6 +30,7 @@ class Livro extends Model
         'imagem_capa',
         'id_genero',
         'id_autor',
+        'id_user',
         'sinopse'
     ];
 
@@ -55,4 +56,9 @@ class Livro extends Model
         )->withTimestamps();
     }
 
+    public function user(){
+        return $this->belongsTo(
+            'App\Models\User',
+        );
+    }
 }

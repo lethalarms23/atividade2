@@ -18,6 +18,8 @@ Fotografia: {{$autores->fotografia}}<br>
     </div> 
 @endif
 <br>
+@if(auth()->check())
 <a href="{{route('autor.edit',['id'=>$autores->id_autor])}}" class="btn btn-secondary" role="button">Editar</a>
 <a href="{{route('autor.delete',['id'=>$autores->id_autor])}}" class="btn btn-secondary" role="button"><i class="fas fa-minus"></i></a><br>
+@endif
 @endsection

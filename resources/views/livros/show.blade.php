@@ -56,6 +56,8 @@ Deleted_at: {{$livro->deleted_at->format('d-m-Y')}}<br>
     <h3>Sem Género definido</h3>
 </div> 
 @endif<br>
+@if(auth()->check())
 <a href="{{route('livros.edit',['id'=>$livro->id_livro])}}" class="btn btn-secondary" role="button">Editar</a>
 <a href="{{route('livros.delete',['id'=>$livro->id_livro])}}" class="btn btn-secondary" role="button"><i class="fas fa-minus"></i></a><br>
+@endif
 @endsection
