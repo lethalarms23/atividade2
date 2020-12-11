@@ -62,4 +62,11 @@ class Livro extends Model
             'id_user',
         );
     }
+
+    public function likes(){
+        return $this->hasMany(
+            'App\Models\Like',
+            'id_livro',
+        );
+    }
 }

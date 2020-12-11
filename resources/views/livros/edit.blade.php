@@ -3,6 +3,7 @@
 Editar Livro
 @endsection
 @section('conteudo')
+@if(auth()->user()->name == $livro->users->name)
 <form action="{{route('livros.update',['id'=>$livro->id_livro])}}" method="post">
 @method('patch')
 @csrf
@@ -142,5 +143,10 @@ Editar Livro
 <td class="alert alert-danger">Sinopse Incorreta</td>
 </tr>
 </table>
+@endif
+@else
+<div class="alert alert-danger" role="alert">
+    <h3>Não têm permissão para editar este livro</h3>
+</div> 
 @endif
 @endsection

@@ -7,6 +7,7 @@ use App\Models\Livro;
 use App\Models\Genero;
 use App\Models\Autor;
 use App\Models\Editora;
+use App\Models\Like;
 use Auth;
 
 class LivrosController extends Controller
@@ -24,9 +25,9 @@ class LivrosController extends Controller
         $idLivro = $req->id;
         //$livro = Livro::findOrFail($idLivro);
         //$livro = Livro::find($idLivro);
+        $likes = Like::where('id_livro',$idLivro)->count();
         $livro = Livro::where('id_livro',$idLivro)->with(['genero','autores','editoras'])->first();
-
-        return view('livros.show',['livro'=>$livro]);
+        return view('livros.show',['livro'=>$livro,'likes'=>$likes]);
     }
 
     public function create(){
@@ -69,10 +70,6 @@ class LivrosController extends Controller
         $editora = Editora::all();
         $id = $r -> id;
         $livro = Livro::where('id_livro',$id)->with(['genero','autores','editoras'])->first();
-        //$autoresLivro = [];
-        //foreach($livro->autores as $autor){
-          //$autoresLivro[] = $autor->id_autor;  
-        //}
         $autoresLivro = $livro->autores->pluck('id_autor')->toArray();
         $editoraLivro = $livro->editoras->pluck('id_editora')->toArray();
         if(isset($livro->users->id_user)){
@@ -148,5 +145,11 @@ class LivrosController extends Controller
             $livro->delete();
             return redirect()->route('livros.index');
         }
+    }
+
+    public function likes(Request $r){
+        $id = $r->id;
+        $likes = Like::where('id_livro',$idLivro)->count();
+        return redirect()->route('livros.show',['id'=>$id]);
     }
 }
