@@ -56,9 +56,10 @@ class Livro extends Model
         )->withTimestamps();
     }
 
-    public function user(){
+    public function users(){
         return $this->belongsTo(
             'App\Models\User',
+            'id_user',
         );
     }
 }

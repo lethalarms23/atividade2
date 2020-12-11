@@ -75,7 +75,17 @@ class LivrosController extends Controller
         //}
         $autoresLivro = $livro->autores->pluck('id_autor')->toArray();
         $editoraLivro = $livro->editoras->pluck('id_editora')->toArray();
-        return view('livros.edit',['livro'=>$livro,'generos'=>$generos,'autores'=>$autores,'autoresArray'=>$autoresLivro,'editorasArray'=>$editoraLivro,'editoras'=>$editora]);
+        if(isset($livro->users->id_user)){
+            if(Auth::user()->id == $livro->users->id_user){
+                return view('livros.edit',['livro'=>$livro,'generos'=>$generos,'autores'=>$autores,'autoresArray'=>$autoresLivro,'editorasArray'=>$editoraLivro,'editoras'=>$editora]);
+            }
+            else{
+                return view('index');
+            }
+        }
+        else{
+            return view('livros.edit',['livro'=>$livro,'generos'=>$generos,'autores'=>$autores,'autoresArray'=>$autoresLivro,'editorasArray'=>$editoraLivro,'editoras'=>$editora]);
+        }
     }
 
     public function update(Request $r){
@@ -102,12 +112,26 @@ class LivrosController extends Controller
 
     public function delete(Request $r){
         $livro = Livro::where('id_livro',$r->id)->with(['genero','autores','editoras'])->first();
-
-        if(is_null($livro)){
-            return redirect()->route('livros.index')->with('msg','O livro não existe');
+        if(isset($livro->users->id_user)){
+            if(Auth::user()->id == $livro->users->id_user){
+                if(is_null($livro)){
+                    return redirect()->route('livros.index')->with('msg','O livro não existe');
+                }
+                else{
+                    return view('livros.delete',['livro'=>$livro]);
+                }
+            }
+            else{
+                return view('livros.index');
+            }
         }
         else{
-            return view('livros.delete',['livro'=>$livro]);
+            if(is_null($livro)){
+                return redirect()->route('livros.index')->with('msg','O livro não existe');
+            }
+            else{
+                return view('livros.delete',['livro'=>$livro]);
+            }
         }
     }
 
