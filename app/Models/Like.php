@@ -9,11 +9,20 @@ class Like extends Model
 {
     use HasFactory;
 
+    protected $table = "Likes";
+
+    public $timestamps = false;
+
+    protected $fillable=[
+        'id_user',
+        'id_livro',
+    ];
+
     public function livros(){
-        return $this->hasMany('App\Models\Livro','id_livro');
+        return $this->belongsTo('App\Models\Livro','id_livro');
     }
     
     public function users(){
-        return $this->hasMany('App\Models\User','id_user');
+        return $this->belongsTo('App\Models\User','id_user');
     }
 }

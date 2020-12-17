@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use App\Models\Livro;
 use App\Models\Genero;
 use App\Models\Autor;
@@ -23,11 +24,16 @@ class LivrosController extends Controller
 
     public function show(Request $req){
         $idLivro = $req->id;
+        $utilizador = "";
         //$livro = Livro::findOrFail($idLivro);
         //$livro = Livro::find($idLivro);
         $likes = Like::where('id_livro',$idLivro)->count();
         $livro = Livro::where('id_livro',$idLivro)->with(['genero','autores','editoras'])->first();
-        return view('livros.show',['livro'=>$livro,'likes'=>$likes]);
+        if(Auth::check()){
+            $idUser = Auth::user()->id;
+            $utilizador = Like::where('id_user','like',$idUser)->where('id_livro','like',$idLivro)->first();
+        }
+        return view('livros.show',['livro'=>$livro,'likes'=>$likes,'utilizador'=>$utilizador]);
     }
 
     public function create(){
@@ -65,23 +71,18 @@ class LivrosController extends Controller
     }
 
     public function edit(Request $r){
-        $generos = Genero::all();
-        $autores = Autor::all();
-        $editora = Editora::all();
         $id = $r -> id;
         $livro = Livro::where('id_livro',$id)->with(['genero','autores','editoras'])->first();
-        $autoresLivro = $livro->autores->pluck('id_autor')->toArray();
-        $editoraLivro = $livro->editoras->pluck('id_editora')->toArray();
-        if(isset($livro->users->id_user)){
-            if(Auth::user()->id == $livro->users->id_user){
-                return view('livros.edit',['livro'=>$livro,'generos'=>$generos,'autores'=>$autores,'autoresArray'=>$autoresLivro,'editorasArray'=>$editoraLivro,'editoras'=>$editora]);
-            }
-            else{
-                return view('index');
-            }
+        if(Gate::allows('atualizar-livro',$livro) || Gate::allows('admin')){
+            $generos = Genero::all();
+            $autores = Autor::all();
+            $editora = Editora::all();
+            $autoresLivro = $livro->autores->pluck('id_autor')->toArray();
+            $editoraLivro = $livro->editoras->pluck('id_editora')->toArray();
+            return view('livros.edit',['livro'=>$livro,'generos'=>$generos,'autores'=>$autores,'autoresArray'=>$autoresLivro,'editorasArray'=>$editoraLivro,'editoras'=>$editora]);
         }
         else{
-            return view('livros.edit',['livro'=>$livro,'generos'=>$generos,'autores'=>$autores,'autoresArray'=>$autoresLivro,'editorasArray'=>$editoraLivro,'editoras'=>$editora]);
+            return redirect()->route('livros.index')->with('msg','Não tem permissão para aceder a área pretendida');
         }
     }
 
@@ -110,7 +111,7 @@ class LivrosController extends Controller
     public function delete(Request $r){
         $livro = Livro::where('id_livro',$r->id)->with(['genero','autores','editoras'])->first();
         if(isset($livro->users->id_user)){
-            if(Auth::user()->id == $livro->users->id_user){
+            if(Auth::user()->id == $livro->users->id_user || Gate::allows('admin')){
                 if(is_null($livro)){
                     return redirect()->route('livros.index')->with('msg','O livro não existe');
                 }
@@ -119,7 +120,7 @@ class LivrosController extends Controller
                 }
             }
             else{
-                return view('livros.index');
+                return redirect()->route('livros.index')->with('msg','Sem permissão');
             }
         }
         else{
@@ -149,7 +150,21 @@ class LivrosController extends Controller
 
     public function likes(Request $r){
         $id = $r->id;
-        $likes = Like::where('id_livro',$idLivro)->count();
-        return redirect()->route('livros.show',['id'=>$id]);
+        if(Auth()->check()){
+            $idUser = Auth::user()->id;
+            $like = Like::where('id_user','=',$idUser)->where('id_livro','=',$id)->first();
+            if($like == null){
+                $novoLike['id_user']=$idUser;
+                $novoLike['id_livro']=$id;
+                $like = Like::create($novoLike);
+                return redirect()->route('livros.show',['id'=>$id]);
+            }
+            else{
+                return redirect()->route('livros.show',['id'=>$id]);
+            }
+        }
+        else{
+            return redirect()->route('livros.show',['id'=>$id]->with('msg','Não está logado'));
+        }
     }
 }

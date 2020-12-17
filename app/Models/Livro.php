@@ -64,7 +64,7 @@ class Livro extends Model
     }
 
     public function likes(){
-        return $this->hasMany(
+        return $this->belongsTo(
             'App\Models\Like',
             'id_livro',
         );

@@ -63,11 +63,17 @@ Deleted_at: {{$livro->deleted_at->format('d-m-Y')}}<br>
     <h3>Sem Utilizador definido</h3>
 </div> 
 @endif
-Nº de Likes: {{$likes}} 
-<form action="{{route('livro.like',['id'=>$livro->id_livro])}}" method="post">
-@csrf
-<button type="submit"><i class="fas fa-heart"></i></button>
-</form>
+Nº de Likes: {{$likes}}
+@if(Auth()->check())
+    @if($utilizador != null)
+    <i class="fas fa-heart" style="color: blue"></i>
+    @else
+    <a href="{{route('livro.like',['id'=>$livro->id_livro])}}">
+    <i class="fas fa-heart"></i>
+    </a>
+@endif
+@endif
+
 <br>
 @if(isset($livro->users->name))
     @if(auth()->user()->name == $livro->users->name)

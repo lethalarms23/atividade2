@@ -113,7 +113,7 @@ Route::delete('/autores/{id}/destroy','App\Http\Controllers\AutorController@dest
 
 //Route Likes
 
-Route::post('/livro/like/{id}','App\Http\Controllers\LivrosController@likes')->name('livro.like');
+Route::get('/livro/like/{id}','App\Http\Controllers\LivrosController@likes')->name('livro.like');
 
 //Routes Authentication
 
