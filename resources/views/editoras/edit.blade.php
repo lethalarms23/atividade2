@@ -3,6 +3,7 @@
 Adicionar Editora
 @endsection
 @section('conteudo')
+@if(auth()->check() || Gate::allows('admin'))
 <form action="{{route('editora.update',['id'=>$editora->id_editora])}}" method="post">
 @method('patch')
 @csrf
@@ -45,5 +46,6 @@ Adicionar Editora
 <td class="alert alert-danger">Observações Incorreto</td>
 </tr>
 </table>
+@endif
 @endif
 @endsection

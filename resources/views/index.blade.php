@@ -28,7 +28,23 @@ body{}
   margin-top: 150px;
 }
 </style>
-
+@if(Gate::allows('admin'))
+  <table class="table table-dark table-striped">
+  <tr>
+  <td></td>
+  <th>Usuários Registados</th>
+  </tr>
+  <tr>
+  @foreach($users as $user)
+    <tr>
+    <td>ID: {{$user->id}} </td>
+    <td>Nome: {{$user->name}} </td>
+    <td>Email: {{$user->email}} </td>
+    </tr>
+  @endforeach
+  </tr>
+  </table>
+@endif
 <script>
 $('body').vegas({
   overlay: true,

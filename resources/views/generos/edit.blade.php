@@ -3,6 +3,7 @@
 Adicionar Genero
 @endsection
 @section('conteudo')
+@if(auth()->check() || Gate::allows('admin'))
 <form action="{{route('genero.update',['id'=>$genero->id_genero])}}" method="post">
 @method('patch')
 @csrf
@@ -34,5 +35,6 @@ Adicionar Genero
 <td class="alert alert-danger">Observações Incorreto</td>
 </tr>
 </table>
+@endif
 @endif
 @endsection

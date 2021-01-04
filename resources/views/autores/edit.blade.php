@@ -3,6 +3,7 @@
 Adicionar Autor
 @endsection
 @section('conteudo')
+@if(auth()->check() || Gate::allows('admin'))
 <form action="{{route('autor.update',['id'=>$autor->id_autor])}}" method="post">
 @method('patch')
 @csrf
@@ -56,5 +57,6 @@ Adicionar Autor
 <td class="alert alert-danger">Fotografia Incorreta</td>
 </tr>
 </table>
+@endif
 @endif
 @endsection

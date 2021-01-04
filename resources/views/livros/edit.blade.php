@@ -3,7 +3,7 @@
 Editar Livro
 @endsection
 @section('conteudo')
-@if(auth()->check())
+@if(auth()->check() || Gate::allows('admin'))
 @if(auth()->user()->name == $livro->users->name)
 <form action="{{route('livros.update',['id'=>$livro->id_livro])}}" method="post">
 @method('patch')

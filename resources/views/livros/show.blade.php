@@ -75,17 +75,8 @@ Nº de Likes: {{$likes}}
 @endif
 
 <br>
-@if(isset($livro->users->name))
-    @if(auth()->user()->name == $livro->users->name)
+@if(Gate::allows('atualizar-livro',$livro) || Gate::allows('admin'))
         <a href="{{route('livros.edit',['id'=>$livro->id_livro])}}" class="btn btn-secondary" role="button">Editar</a>
         <a href="{{route('livros.delete',['id'=>$livro->id_livro])}}" class="btn btn-secondary" role="button"><i class="fas fa-minus"></i></a><br>
-    @else
-    <div class="alert alert-danger" role="alert">
-        <h3>Não têm permissão para editar este livro</h3>
-    </div> 
-    @endif
-@else
-    <a href="{{route('livros.edit',['id'=>$livro->id_livro])}}" class="btn btn-secondary" role="button">Editar</a>
-    <a href="{{route('livros.delete',['id'=>$livro->id_livro])}}" class="btn btn-secondary" role="button"><i class="fas fa-minus"></i></a><br>
 @endif
 @endsection

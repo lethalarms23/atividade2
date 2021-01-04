@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 //Pagina Inicial Slick
 
-Route::get('/index',function(){ return view('index');})->name('home.index');
+Route::get('/index','App\Http\Controllers\UserController@index')->name('home.index');
 
 //Routes Show
 
