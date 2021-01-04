@@ -29,11 +29,8 @@ body{}
 }
 </style>
 @if(Gate::allows('admin'))
+  <h2 style="text-align: center" class="bg-dark">Usuários Registrados</h2>
   <table class="table table-dark table-striped">
-  <tr>
-  <td></td>
-  <th>Usuários Registados</th>
-  </tr>
   <tr>
   @foreach($users as $user)
     <tr>
