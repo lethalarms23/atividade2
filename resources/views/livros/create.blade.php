@@ -3,7 +3,7 @@
 Adicionar Livro
 @endsection
 @section('conteudo')
-<form action="{{route('livros.store')}}" method="post">
+<form action="{{route('livros.store')}}" method="post" enctype="multipart/form-data">
 @csrf
 <table class="table table-dark table-striped">
 <tr>
@@ -32,7 +32,7 @@ Adicionar Livro
 </tr>
 <tr>
 <th>Imagem Capa</th>
-<td><input type="text" name="imagem_capa" value="{{old('imagem_capa')}}"></td>
+<td><input type="file" name="imagem_capa" value="{{old('imagem_capa')}}"></td>
 </tr>
 <tr>
 <th>Autor(es)</th>

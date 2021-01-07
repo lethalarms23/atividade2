@@ -51,10 +51,17 @@ class LivrosController extends Controller
             'data_edicao'=>['nullable','date'],
             'isbn'=>['required','min:13','max:13'],
             'observacoes'=>['nullable','min:3','max:255'],
-            'imagem_capa'=>['nullable','min:3','max:255'],
+            'imagem_capa'=>['image','nullable','max:2000'],
             'id_genero'=>['nullable','numeric','min:1'],
             'sinopse'=>['nullable','min:3','max:255']
         ]);
+        if($request->hasFile('imagem-capa')){
+            $nomeImagem = $request->file('imagem_capa')->getClientOriginalName();
+            $nomeImagem = time().'_'.$nomeImagem;
+            $guardarImagem = $request->file('imagem_capa')->storeAs('imagems/livros'.$nomeImagem);
+
+            $novoLivro['imagem_capa']=$nomeImagem;
+        }
         if(Auth::check()){
             $userAtual = Auth::user()->id;
             $novoLivro['id_user']=$userAtual;
@@ -96,10 +103,16 @@ class LivrosController extends Controller
             'data_edicao'=>['nullable','date'],
             'isbn'=>['required','min:13','max:13'],
             'observacoes'=>['nullable','min:3','max:255'],
-            'imagem_capa'=>['nullable','min:3','max:255'],
+            'imagem_capa'=>['image','nullable','max:2000'],
             'id_genero'=>['nullable','numeric','min:1'],
             'sinopse'=>['nullable','min:3','max:255']
         ]);
+        if($r->hasFile('imagem_capa')){
+            $nomeImagem = $r->file('imagem_capa')->getClientOriginalName();
+            $nomeImagem = time().'_'.$nomeImagem;
+            $guardarImagem = $r->file('imagem_capa')->storeAs('imagems/livros', $nomeImagem);
+            $editarLivro['imagem_capa']=$nomeImagem;
+        }
         $autores = $r->id_autor;
         $editoras = $r->id_editora;
         $livroAtualizado = $livro->update($editarLivro);

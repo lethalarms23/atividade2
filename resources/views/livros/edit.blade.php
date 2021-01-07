@@ -5,7 +5,7 @@ Editar Livro
 @section('conteudo')
 @if(auth()->check() || Gate::allows('admin'))
 @if(auth()->user()->name == $livro->users->name)
-<form action="{{route('livros.update',['id'=>$livro->id_livro])}}" method="post">
+<form action="{{route('livros.update',['id'=>$livro->id_livro])}}" method="post" enctype="multipart/form-data">
 @method('patch')
 @csrf
 <table class="table table-dark table-striped">
@@ -35,7 +35,7 @@ Editar Livro
 </tr>
 <tr>
 <th>Imagem Capa</th>
-<td><input type="text" name="imagem_capa" value="{{$livro->imagem_capa}}"></td>
+<td><input type="file" name="imagem_capa" value="{{$livro->imagem_capa}}"></td>
 </tr>
 <tr>
 <th>Género</th>
