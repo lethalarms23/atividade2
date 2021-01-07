@@ -34,6 +34,9 @@ Adicionar Livro
 <th>Imagem Capa</th>
 <td><input type="file" name="imagem_capa" value="{{old('imagem_capa')}}"></td>
 </tr>
+<th>Ficheiro Sinopse</th>
+<td><input type="file" name="ficheiro_sinopse" value="{{old('ficheiro_sinopse')}}"></td>
+</tr>
 <tr>
 <th>Autor(es)</th>
 <td>

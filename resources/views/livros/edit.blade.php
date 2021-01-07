@@ -3,8 +3,8 @@
 Editar Livro
 @endsection
 @section('conteudo')
-@if(auth()->check() || Gate::allows('admin'))
-@if(auth()->user()->name == $livro->users->name)
+@if(auth()->check())
+@if(auth()->user()->name == $livro->users->name || Gate::allows('admin'))
 <form action="{{route('livros.update',['id'=>$livro->id_livro])}}" method="post" enctype="multipart/form-data">
 @method('patch')
 @csrf
@@ -35,7 +35,11 @@ Editar Livro
 </tr>
 <tr>
 <th>Imagem Capa</th>
-<td><input type="file" name="imagem_capa" value="{{$livro->imagem_capa}}"></td>
+<td><input type="file" name="imagem_capa" value="{{$livro->imagem_capa}}"><img src="{{asset('imagems/livros/'.$livro->imagem_capa)}}" style="width: 5%"><br></td>
+</tr>
+<tr>
+<th>Ficheiro Sinopse</th>
+<td><input type="file" name="ficheiro_sinopse" value="{{$livro->ficheiro_sinopse}}"><br></td>
 </tr>
 <tr>
 <th>Género</th>
@@ -121,6 +125,13 @@ Editar Livro
 <table class="table table-dark table-striped">
 <tr>
 <td class="alert alert-danger">Imagem Capa Incorreto</td>
+</tr>
+</table>
+@endif
+@if($errors->has('ficheiro_sinopse'))
+<table class="table table-dark table-striped">
+<tr>
+<td class="alert alert-danger">Ficheiro Sinopse Incorreto</td>
 </tr>
 </table>
 @endif

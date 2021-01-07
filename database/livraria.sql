@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 17-Dez-2020 às 15:23
+-- Generation Time: 07-Jan-2021 às 14:46
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.2
 
@@ -233,21 +233,21 @@ CREATE TABLE `livros` (
 --
 
 INSERT INTO `livros` (`id_livro`, `titulo`, `idioma`, `total_paginas`, `data_edicao`, `isbn`, `observacoes`, `imagem_capa`, `id_genero`, `id_autor`, `sinopse`, `created_at`, `updated_at`, `deleted_at`, `id_user`) VALUES
-(1, 'sistema de informação de apoio a gestão', 'Portugês', NULL, NULL, '9728589433', NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0),
-(2, 'cidades e regiões digitais:impacte na cidade e nas pessoas', 'Portugês', NULL, NULL, '9728830033', NULL, NULL, 2, 1, NULL, NULL, NULL, NULL, 0),
-(3, 'Informatica e Competencias Tecnologicas para a Sociedade da Informação', 'Portugês', NULL, NULL, '9789728830304', NULL, NULL, 1, 3, NULL, NULL, NULL, NULL, 0),
-(4, 'Readings in Information Society', 'Inglês', NULL, NULL, '9789727228997', NULL, NULL, 3, 5, NULL, NULL, NULL, NULL, 0),
-(5, 'Sociedade da Informação: balanço e implicações ', 'Português', NULL, NULL, '9789728830182', NULL, NULL, 3, 7, NULL, NULL, NULL, NULL, 0),
-(6, 'O Tribunal de Contas e as Autarquias Locais', 'Portugês', NULL, NULL, '9789899936614', NULL, NULL, 2, 7, NULL, NULL, NULL, NULL, 0),
-(7, 'Informática e Competências Tecnológicas para a Sociedade da Informação 2ed', 'Português', NULL, NULL, '9789728830304', NULL, NULL, 2, 8, NULL, NULL, NULL, NULL, 0),
-(8, 'Negócio Eletrónico - conceitos e perspetivas de desenvolvimento', 'Português', NULL, NULL, '9789899552258', NULL, NULL, 1, 8, NULL, NULL, NULL, NULL, 0),
-(9, 'Gestão da Informação na Biblioteca Escolar', 'Português', NULL, NULL, '9789722314916', NULL, NULL, 1, 9, NULL, NULL, NULL, NULL, 0),
-(10, 'A virtual environment to share knowledge', 'Inglês', NULL, NULL, '9781351729901', NULL, NULL, 2, 4, NULL, NULL, NULL, NULL, 0),
-(11, 'Ciência da Informação: contributos para o seu estudo', 'Português', NULL, NULL, '9789896430900', NULL, NULL, 1, 4, NULL, NULL, NULL, NULL, 0),
-(12, 'Repensar a Sociedade da Informação e do Conhecimento no Início do Século XXI', 'Português', NULL, NULL, '9789726186953', NULL, NULL, 3, 4, NULL, NULL, NULL, NULL, 0),
-(13, 'Gestão da Informação em Museus: uma contribuição para o seu estudo', 'Português', NULL, NULL, '9789899901394', NULL, NULL, 2, 4, NULL, NULL, NULL, NULL, 0),
-(14, 'Web 2.0 and Higher Education. A psychological perspective', 'Inglês', NULL, NULL, '9783659683466', NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0),
-(15, 'Contribuições para a discussão de um modelo de Governo Eletrónico Local para Angola', 'Português', NULL, NULL, '9789899933200', NULL, NULL, 1, 13, NULL, NULL, NULL, NULL, 0),
+(1, 'sistema de informação de apoio a gestão', 'Portugês', NULL, NULL, '9728589433', NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 1),
+(2, 'cidades e regiões digitais:impacte na cidade e nas pessoas', 'Portugês', NULL, NULL, '9728830033', NULL, NULL, 2, 1, NULL, NULL, NULL, NULL, 1),
+(3, 'Informatica e Competencias Tecnologicas para a Sociedade da Informação', 'Portugês', NULL, NULL, '9789728830304', NULL, NULL, 1, 3, NULL, NULL, NULL, NULL, 1),
+(4, 'Readings in Information Society', 'Inglês', NULL, NULL, '9789727228997', NULL, NULL, 3, 5, NULL, NULL, NULL, NULL, 1),
+(5, 'Sociedade da Informação: balanço e implicações ', 'Português', NULL, NULL, '9789728830182', NULL, NULL, 3, 7, NULL, NULL, NULL, NULL, 1),
+(6, 'O Tribunal de Contas e as Autarquias Locais', 'Portugês', NULL, NULL, '9789899936614', NULL, NULL, 2, 7, NULL, NULL, NULL, NULL, 1),
+(7, 'Informática e Competências Tecnológicas para a Sociedade da Informação 2ed', 'Português', NULL, NULL, '9789728830304', NULL, NULL, 2, 8, NULL, NULL, NULL, NULL, 1),
+(8, 'Negócio Eletrónico - conceitos e perspetivas de desenvolvimento', 'Português', NULL, NULL, '9789899552258', NULL, NULL, 1, 8, NULL, NULL, NULL, NULL, 1),
+(9, 'Gestão da Informação na Biblioteca Escolar', 'Português', NULL, NULL, '9789722314916', NULL, NULL, 1, 9, NULL, NULL, NULL, NULL, 1),
+(10, 'A virtual environment to share knowledge', 'Inglês', NULL, NULL, '9781351729901', NULL, NULL, 2, 4, NULL, NULL, NULL, NULL, 1),
+(11, 'Ciência da Informação: contributos para o seu estudo', 'Português', NULL, NULL, '9789896430900', NULL, NULL, 1, 4, NULL, NULL, NULL, NULL, 1),
+(12, 'Repensar a Sociedade da Informação e do Conhecimento no Início do Século XXI', 'Português', NULL, NULL, '9789726186953', NULL, NULL, 3, 4, NULL, NULL, NULL, NULL, 1),
+(13, 'Gestão da Informação em Museus: uma contribuição para o seu estudo', 'Português', NULL, NULL, '9789899901394', NULL, NULL, 2, 4, NULL, NULL, NULL, NULL, 1),
+(14, 'Web 2.0 and Higher Education. A psychological perspective', 'Inglês', NULL, NULL, '9783659683466', NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 1),
+(15, 'Contribuições para a discussão de um modelo de Governo Eletrónico Local para Angola', 'Português', NULL, NULL, '9789899933200', NULL, NULL, 1, 13, NULL, NULL, NULL, NULL, 1),
 (20, 'dasdas', 'asdasdas', NULL, NULL, '1234567890123', NULL, NULL, NULL, NULL, NULL, '2020-12-17 14:05:01', '2020-12-17 14:05:01', NULL, 2);
 
 -- --------------------------------------------------------
@@ -274,7 +274,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `tipo_user`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Marcelo Nogueira', 'hiddankill@protonmail.com', NULL, '$2y$10$uNxAhfAdKr8gpU/K.0sTOeCjykEzO6Cqs/..X4UDQlWL2djjaeV7C', 'normal', 'Y5uGg5NvzlgsOsJPfX5jtCg3KgJIEtJweKXaBXWdnK6V18dioLFDbft27Osk', '2020-12-10 13:54:53', '2020-12-10 13:54:53'),
-(2, 'Marcelo', 'hiddankill@gmail.com', NULL, '$2y$10$0Xl1jm3M8aspTKXyCLJ4ae.aIx6lOKQtTafueS0vR6RdMyOU02SAy', 'normal', NULL, '2020-12-14 16:45:10', '2020-12-14 16:45:10');
+(2, 'Marcelo', 'hiddankill@gmail.com', NULL, '$2y$10$0Xl1jm3M8aspTKXyCLJ4ae.aIx6lOKQtTafueS0vR6RdMyOU02SAy', 'admin', NULL, '2020-12-14 16:45:10', '2020-12-14 16:45:10');
 
 --
 -- Indexes for dumped tables

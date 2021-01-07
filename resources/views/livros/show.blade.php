@@ -16,7 +16,8 @@ Data Edição: {{$livro->data_edicao->format('d-m-Y')}}<br>
 @endif
 Total páginas: {{$livro->total_paginas}}<br>
 Observações: {{$livro->observacoes}}<br>
-Imagem Capa: <img src="{{asset('imagems/livros/'.$livro->imagem_capa)}}" style="width: 5%"><br>
+Imagem Capa: @if($livro->imagem_capa != 0)<img src="{{asset('imagems/livros/'.$livro->imagem_capa)}}" style="width: 5%"><br>@endif <br>
+Ficheiro Sinopse: @if(isset($livro->ficheiro_sinopse))<a href="{{asset('doc/livros/'.$livro->ficheiro_sinopse)}}">Ver @endif</a><br>
 Sinopse: {{$livro->sinopse}}<br>
 @if(!is_null($livro->created_at))
 Created_at: {{$livro->created_at->format('d-m-Y')}}<br>

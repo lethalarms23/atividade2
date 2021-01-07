@@ -32,11 +32,19 @@ body{}
   <h2 style="text-align: center" class="bg-dark">Usuários Registrados</h2>
   <table class="table table-dark table-striped">
   <tr>
+  <td>ID</td>
+  <td>Nome</td>
+  <td>Email</td>
+  <td>Tipo:</td>
+  </tr>
+  <tr></tr>
+  <tr>
   @foreach($users as $user)
     <tr>
-    <td>ID: {{$user->id}} </td>
-    <td>Nome: {{$user->name}} </td>
-    <td>Email: {{$user->email}} </td>
+    <td>{{$user->id}} </td>
+    <td>{{$user->name}} </td>
+    <td>{{$user->email}} </td>
+    <td>{{$user->tipo_user}}</td>
     </tr>
   @endforeach
   </tr>

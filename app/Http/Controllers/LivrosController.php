@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Livro;
 use App\Models\Genero;
 use App\Models\Autor;
@@ -95,7 +96,7 @@ class LivrosController extends Controller
 
     public function update(Request $r){
         $id = $r -> id;
-        $livro = Livro::where('id_livro',$id)->with(['genero','autores','editoras'])->first();
+        $livro = Livro::where('id_livro',$id)->with(['genero','autores','editoras'])->first(); 
         $editarLivro = $r->validate([
             'titulo'=>['required','min:3','max:100'],
             'idioma'=>['required','min:3','max:10'],
@@ -104,13 +105,28 @@ class LivrosController extends Controller
             'isbn'=>['required','min:13','max:13'],
             'observacoes'=>['nullable','min:3','max:255'],
             'imagem_capa'=>['image','nullable','max:2000'],
+            'ficheiro_sinopse'=>['file','mimes:docx, doc','nullable','max:5000'],
             'id_genero'=>['nullable','numeric','min:1'],
             'sinopse'=>['nullable','min:3','max:255']
         ]);
+        $imagemAntiga = $livro->imagem_capa;
+        $ficheiroAntigo = $livro->ficheiro_sinopse;
+        if($r->hasFile('ficheiro_sinopse')){
+            $nomeFicheiro = $r->file('ficheiro_sinopse')->getClientOriginalName();
+            $nomeFicheiro = time().'_'.$nomeFicheiro;
+            $guardarFicheiro = $r->file('ficheiro_sinopse')->storeAs('doc/livros',$nomeFicheiro);
+            if(!is_null($ficheiroAntigo)){
+                Storage::Delete('doc/livros/'.$ficheiroAntigo);
+            }
+            $editarLivro['ficheiro_sinopse']=$nomeFicheiro;
+        }
         if($r->hasFile('imagem_capa')){
             $nomeImagem = $r->file('imagem_capa')->getClientOriginalName();
             $nomeImagem = time().'_'.$nomeImagem;
             $guardarImagem = $r->file('imagem_capa')->storeAs('imagems/livros', $nomeImagem);
+            if(!is_null($imagemAntiga)){
+                Storage::Delete('imagems/livros/'.$imagemAntiga);
+            }
             $editarLivro['imagem_capa']=$nomeImagem;
         }
         $autores = $r->id_autor;
